@@ -1,0 +1,197 @@
+# Activity lifecycle
+
+1. Root Launcher Activities
+- Category: "Activity lifecycle"
+- Type: "Change (all apps)"
+- Name: "Root launcher activities are no longer finished on Back press"
+- Info: "The system Back button now moves an activity to the background instead of finishing it."
+- Describe: "The system Back button now moves an activity to the background instead of finishing it. This change affects how the back button behaves in root launcher activities, providing more consistent behavior across the system."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#back-press"
+
+# Backup and restore
+
+1. Backup Changes
+- Category: "Backup and restore"
+- Type: "Change (apps targeting 12+)"
+- Name: "Changes in backup and restore"
+- Info: "Include/exclude rules are now specified separately for Google Drive and D2D backups."
+- Describe: "Include/exclude rules are now specified separately for Google Drive and D2D backups. This change provides more granular control over backup behavior for different backup types."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-12#backup-restore"
+
+# Camera
+
+1. Vendor Extensions
+- Category: "Camera"
+- Type: "New features and APIs"
+- Name: "Camera2 vendor extensions"
+- Info: "OEM-provided custom camera effects are now exposed directly in the platform."
+- Describe: "OEM-provided custom camera effects are now exposed directly in the platform. This feature allows apps to access and utilize device-specific camera capabilities and effects provided by OEMs."
+- API_List: "['Camera2']"
+- Source: "https://developer.android.com/about/versions/12/features#camera2-extensions"
+
+2. Camera Sensor Support
+- Category: "Camera"
+- Type: "New features and APIs"
+- Name: "Quad bayer camera sensor support"
+- Info: "New platform APIs provide support for ultra high-resolution camera sensors."
+- Describe: "New platform APIs provide support for ultra high-resolution camera sensors. This enhancement enables apps to take advantage of advanced camera hardware capabilities, particularly for devices with quad bayer sensors."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/features#camera-sensor-support"
+
+# Connectivity
+
+1. Passpoint Updates
+- Category: "Connectivity"
+- Type: "Change (all apps)"
+- Name: "Passpoint updates"
+- Info: "Android 12 introduces new APIs to verify device support for Passpoint features."
+- Describe: "Android 12 introduces new APIs to verify device support for Passpoint features. These updates improve how apps can interact with Passpoint Wi-Fi networks and verify supported capabilities."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#passpoint"
+
+2. Concurrent P2P + Internet
+- Category: "Connectivity"
+- Type: "Change (apps targeting 12+)"
+- Name: "Concurrent Peer-to-Peer + Internet Connection"
+- Info: "On supported devices, the primary Wi-Fi network is no longer disconnected when establishing concurrent peer-to-peer and internet connections."
+- Describe: "On supported devices, the primary Wi-Fi network is no longer disconnected when establishing concurrent peer-to-peer and internet connections. This improvement allows devices to maintain both connections simultaneously, enhancing connectivity capabilities."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-12#concurrent-p2p"
+
+# Graphics and images
+
+1. Refresh Rate Changes
+- Category: "Graphics and images"
+- Type: "Change (all apps)"
+- Name: "Improved refresh rate switching"
+- Info: "The refresh rate can now be changed even when the display doesn't support a seamless transition."
+- Describe: "The refresh rate can now be changed even when the display doesn't support a seamless transition. This improvement enables more flexible refresh rate management across different display types."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#refresh-rate"
+
+2. AVIF Support
+- Category: "Graphics and images"
+- Type: "New features and APIs"
+- Name: "AVIF image support"
+- Info: "Android 12 introduces support for the AVIF image format, providing better image quality at the same file size."
+- Describe: "Android 12 introduces support for the AVIF image format, providing better image quality at the same file size. This format offers improved compression efficiency compared to older formats."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/features#avif"
+
+3. Graphics Effects
+- Category: "Graphics and images"
+- Type: "New features and APIs"
+- Name: "Easier blurs, color filters, and other effects"
+- Info: "A new API makes it easier to apply common graphics effects to views and rendering hierarchies."
+- Describe: "A new API makes it easier to apply common graphics effects to views and rendering hierarchies. This enhancement simplifies the implementation of visual effects in applications."
+- API_List: "['RenderEffect']"
+- Source: "https://developer.android.com/about/versions/12/features#rendereffect"
+
+# Media
+
+1. Media Transcoding
+- Category: "Media"
+- Type: "New features and APIs"
+- Name: "Compatible media transcoding"
+- Info: "Videos encoded in modern formats can now be converted automatically for playback in apps that do not support those formats."
+- Describe: "Videos encoded in modern formats can now be converted automatically for playback in apps that do not support those formats. This feature improves compatibility and user experience when dealing with different video formats."
+- API_List: "[]"
+- Source: "https://developer.android.com/guide/topics/media-apps/video-app/compatible-media-transcoding"
+
+2. Performance Class
+- Category: "Media"
+- Type: "New features and APIs"
+- Name: "Performance class"
+- Info: "Performance classes provide a simplified expression of device capabilities that can be used to provide tailored experiences."
+- Describe: "Performance classes provide a simplified expression of device capabilities that can be used to provide tailored experiences. This allows apps to optimize their functionality based on device performance capabilities."
+- API_List: "[]"
+- Source: "https://developer.android.com/topic/performance/performance-class"
+
+3. Audio Focus
+- Category: "Media"
+- Type: "New features and APIs"
+- Name: "Audio focus"
+- Info: "Android now enforces a fade-out when an app that's playing audio loses audio focus."
+- Describe: "Android now enforces a fade-out when an app that's playing audio loses audio focus. This change improves the audio transition experience when switching between different audio sources."
+- API_List: "['AudioManager']"
+- Source: "https://developer.android.com/about/versions/12/features#audio-focus"
+
+# Security and privacy
+
+1. Microphone and Camera Toggles
+- Category: "Security and privacy"
+- Type: "Change (all apps)"
+- Name: "Microphone and camera toggles"
+- Info: "Supported devices allow users to enable or disable microphone and camera access for all apps with a single toggle option."
+- Describe: "Supported devices allow users to enable or disable microphone and camera access for all apps with a single toggle option. This change gives users more control over their privacy and helps prevent unauthorized access to sensitive hardware."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#mic-camera-toggles"
+
+2. Privacy Dashboard
+- Category: "Security and privacy"
+- Type: "New features and APIs"
+- Name: "Privacy Dashboard"
+- Info: "Android 12 introduces a new system settings screen that shows access history for location, camera, and microphone data."
+- Describe: "Android 12 introduces a new system settings screen that shows access history for location, camera, and microphone data. This feature provides users with transparency about how apps are accessing sensitive data and hardware on their device."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/features#privacy-dashboard"
+
+3. Clipboard Access Notifications
+- Category: "Security and privacy"
+- Type: "Change (all apps)"
+- Name: "Clipboard access notifications"
+- Info: "Android 12 shows a toast message whenever an app accesses clipboard content that it did not create."
+- Describe: "Android 12 shows a toast message whenever an app accesses clipboard content that it did not create. This change improves transparency and helps users understand when their clipboard data is being accessed by applications."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#clipboard-access"
+
+# Storage
+
+1. Voice Recordings Directory
+- Category: "Storage"
+- Type: "New features and APIs"
+- Name: "New directory for voice recordings"
+- Info: "Android 12 introduces a new directory to store and identify voice recordings."
+- Describe: "Android 12 introduces a new directory to store and identify voice recordings. This addition provides a standardized location for storing voice recordings and helps with media organization."
+- API_List: "[]"
+- Source: "https://developer.android.com/training/data-storage/shared/media#well-defined-collections"
+
+2. Media Management
+- Category: "Storage"
+- Type: "New features and APIs"
+- Name: "Media management access"
+- Info: "Android 12 introduces a new permission that allows apps to move, modify, and delete files without showing a confirmation dialog each time."
+- Describe: "Android 12 introduces a new permission that allows apps to move, modify, and delete files without showing a confirmation dialog each time. This feature streamlines media management operations while maintaining user control over file access."
+- API_List: "[]"
+- Source: "https://developer.android.com/training/data-storage/shared/media#management-permission"
+
+# User Experience
+
+1. Splash Screens
+- Category: "UX"
+- Type: "Change (all apps)"
+- Name: "App splash screens"
+- Info: "Apps that previously implemented a custom splash screen must now migrate to the new SplashScreen API."
+- Describe: "Apps that previously implemented a custom splash screen must now migrate to the new SplashScreen API. This change provides a more consistent launch experience across all apps and improves the user experience during app startup."
+- API_List: "['SplashScreen']"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#splash-screen"
+
+2. Multi-window Mode
+- Category: "UX"
+- Type: "Change (all apps)"
+- Name: "All apps in multi-window mode"
+- Info: "Multi-window mode is now standard behavior on devices with large screens."
+- Describe: "Multi-window mode is now standard behavior on devices with large screens. This change improves multitasking capabilities and user experience on larger devices like tablets and foldables."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-all#multi-window"
+
+3. Custom Notifications
+- Category: "UX"
+- Type: "Change (apps targeting 12+)"
+- Name: "Custom notifications"
+- Info: "Android 12 enforces visually consistent layout templates for custom notifications."
+- Describe: "Android 12 enforces visually consistent layout templates for custom notifications. This change ensures a more uniform and predictable notification experience across all apps."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/12/behavior-changes-12#custom-notifications"

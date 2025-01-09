@@ -1,0 +1,112 @@
+# Accessibility
+
+1. Better Braille
+- Category: "Accessibility"
+- Type: "New features and APIs"
+- Name: "Better Braille"
+- Info: "In Android 15, we've made it possible for TalkBack to support Braille displays that are using the HID standard over both USB and secure Bluetooth."
+- Describe: "In Android 15, we've made it possible for TalkBack to support Braille displays that are using the HID standard over both USB and secure Bluetooth.\n\nThis standard, much like the one used by mice and keyboards, will help Android support a wider range of Braille displays over time."
+- API_List: "['TalkBack']"
+- Source: "https://developer.android.com/about/versions/15/features#braille"
+
+# Camera and Media
+
+1. Low Light Boost
+- Category: "Camera and media"
+- Type: "New features and APIs"
+- Name: "Low Light Boost"
+- Info: "Android 15 introduces Low Light Boost, an auto-exposure mode available to both Camera 2 and the night mode camera extension."
+- Describe: "Android 15 introduces Low Light Boost, an auto-exposure mode available to both Camera 2 and the night mode camera extension. Low Light Boost adjusts the exposure of the Preview stream in low-light conditions.\n\nThis is different from how the night mode camera extension creates still images, because night mode combines a burst of photos to create a single, enhanced image. While night mode works very well for creating a still image, it can't create a continuous stream of frames, but Low Light Boost can.\n\nCapabilities enabled:\n- Providing an enhanced image preview for better low-light framing\n- Scanning QR codes in low light\n- Recording brightened video from Preview stream"
+- API_List: "['Camera2', 'CameraExtension']"
+- Source: "https://developer.android.com/about/versions/15/features#low-light-boost"
+
+2. Audio Playback Changes
+- Category: "Camera and media"
+- Type: "Change (all apps)"
+- Name: "Direct and offload audio playback invalidation"
+- Info: "Beginning with Android 15, when an app requests direct playback, the system invalidates previously open direct or offload audio tracks when resource limits are reached."
+- Describe: "Beginning with Android 15, when an app requests direct playback, the system invalidates previously open direct or offload audio tracks when resource limits are reached. This affects how audio resources are managed and may require apps to handle track invalidation."
+- API_List: "['AudioTrack']"
+- Source: "https://developer.android.com/about/versions/15/behavior-changes-all#direct-audio-playback"
+
+3. Audio Focus Restrictions
+- Category: "Camera and media"
+- Type: "Change (apps targeting 15+)"
+- Name: "Restrictions on requesting audio focus"
+- Info: "Apps that target Android 15 must be the top app or running an audio-related foreground service in order to request audio focus."
+- Describe: "Apps targeting Android 15 must either be the top app or running an audio-related foreground service to request audio focus. This change affects how apps manage audio focus and may require updates to audio handling logic."
+- API_List: "['AudioManager', 'AudioFocusRequest']"
+- Source: "https://developer.android.com/about/versions/15/behavior-changes-15#audio-focus"
+
+4. Virtual MIDI 2.0 Devices
+- Category: "Camera and media"
+- Type: "New features and APIs"
+- Name: "Virtual MIDI 2.0 devices"
+- Info: "Android 15 extends UMP support to virtual MIDI apps, enabling composition apps to control synthesizer apps as a virtual MIDI 2.0 device just like they would with an USB MIDI 2.0 device."
+- Describe: "Android 13 added support for connecting to MIDI 2.0 devices using USB, which communicate using Universal MIDI Packets (UMP). Android 15 extends UMP support to virtual MIDI apps, enabling composition apps to control synthesizer apps as a virtual MIDI 2.0 device just like they would with an USB MIDI 2.0 device."
+- API_List: "['MidiUmpDeviceService']"
+- Source: "https://developer.android.com/about/versions/15/features#virtual-midi-devices"
+
+5. More Efficient AV1 Software Decoding
+- Category: "Camera and media"
+- Type: "New features and APIs"
+- Name: "More efficient AV1 software decoding"
+- Info: "dav1d, the popular AV1 software decoder from VideoLAN is now available for Android devices that don't support AV1 decode in hardware."
+- Describe: "dav1d, the popular AV1 software decoder from VideoLAN is now available for Android devices that don't support AV1 decode in hardware. dav1d is up to 3x more performant than the legacy AV1 software decoder, enabling HD AV1 playback for more users, including some low and mid tier devices.\n\nYour app needs to opt-in to using dav1d by invoking it by name 'c2.android.av1-dav1d.decoder'. dav1d will be made the default AV1 software decoder in a subsequent update. This support is standardized and backported to Android 11 devices that receive Google Play system updates."
+- API_List: "['c2.android.av1-dav1d.decoder']"
+- Source: "https://developer.android.com/about/versions/15/features#av1-encoding"
+
+# Core Functionality
+
+1. Package Stopped State Changes
+- Category: "Core functionality"
+- Type: "Change (all apps)"
+- Name: "Changes to package stopped state"
+- Info: "In Android 15, apps are only be removed from the FLAG_STOPPED state through direct or indirect user action."
+- Describe: "In Android 15, apps are only removed from the FLAG_STOPPED state through direct or indirect user action. In addition to the existing restrictions, the system also cancels all pending jobs and alarms when an app enters the stopped state."
+- API_List: "['FLAG_STOPPED']"
+- Source: "https://developer.android.com/about/versions/15/behavior-changes-all#enhance-package-stopped"
+
+# Security
+
+1. Permission Checks on Content URIs
+- Category: "Security"
+- Type: "New features and APIs"
+- Name: "Permission checks on content URIs"
+- Info: "Android 15 introduces a set of APIs that perform permission checks on content URIs."
+- Describe: "Android 15 introduces a set of APIs that perform permission checks on content URIs:\n- Context.checkContentUriPermissionFull: This performs a full permission check on content URIs.\n- Activity manifest attribute requireContentUriPermissionFromCaller: This enforces specified permissions on the provided content URIs at activity launch.\n- ComponentCaller class for Activity callers: This represents the app that launched the activity."
+- API_List: "['Context.checkContentUriPermissionFull', 'requireContentUriPermissionFromCaller', 'ComponentCaller']"
+- Source: "https://developer.android.com/about/versions/15/features#content-uri"
+
+# Connectivity
+
+1. Satellite Support
+- Category: "Connectivity"
+- Type: "New features and APIs"
+- Name: "Satellite support"
+- Info: "Android 15 continues to extend platform support for satellite connectivity and includes UI elements to ensure a consistent user experience across the satellite connectivity landscape."
+- Describe: "Android 15 continues to extend platform support for satellite connectivity and includes UI elements to ensure a consistent user experience across the satellite connectivity landscape.\n\nApps can use ServiceState.isUsingNonTerrestrialNetwork() to detect when a device is connected to a satellite, giving them more awareness of why full network services might be unavailable. Additionally, Android 15 provides support for SMS and MMS apps as well as preloaded RCS apps to use satellite connectivity for sending and receiving messages."
+- API_List: "['ServiceState.isUsingNonTerrestrialNetwork']"
+- Source: "https://developer.android.com/about/versions/15/features#satellite"
+
+# Camera and Media (Additional Features)
+
+6. Loudness Control
+- Category: "Camera and media"
+- Type: "New features and APIs"
+- Name: "Loudness control"
+- Info: "Android 15 introduces support for the CTA-2075 loudness standard to help avoid audio loudness inconsistencies and ensure users don't have to constantly adjust volume when switching between content."
+- Describe: "Android 15 introduces support for the CTA-2075 loudness standard to help avoid audio loudness inconsistencies and ensure users don't have to constantly adjust volume when switching between content. The system leverages known characteristics of the output devices (headphones and speaker) along with loudness metadata available in AAC audio content to intelligently adjust the audio loudness and dynamic range compression levels.\n\nTo enable this feature, you need to ensure loudness metadata is available in your AAC content and enable the platform feature in your app by instantiating a LoudnessCodecController object."
+- API_List: "['LoudnessCodecController', 'MediaCodec', 'OnLoudnessCodecUpdateListener']"
+- Source: "https://developer.android.com/about/versions/15/features#loudness"
+
+# User Experience and System UI
+
+1. Predictive Back Animations
+- Category: "User experience and system UI"
+- Type: "Change (all apps)"
+- Name: "Predictive back animations enabled for apps that opted in"
+- Info: "The developer option for predictive back animations has been removed. Instead, system animations such as back-to-home, cross-task, and cross-activity appear for apps that have opted in to the predictive back gesture."
+- Describe: "The developer option for predictive back animations has been removed. Instead, system animations such as back-to-home, cross-task, and cross-activity appear for apps that have opted in to the predictive back gesture either entirely or at an activity level.\n\nThis change affects how back navigation animations are handled in apps that have opted into the predictive back gesture feature."
+- API_List: "['OnBackInvokedCallback', 'OnBackInvokedDispatcher']"
+- Source: "https://developer.android.com/about/versions/15/behavior-changes-all#predictive-back"
