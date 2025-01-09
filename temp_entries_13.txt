@@ -1,0 +1,110 @@
+# Camera
+
+1. HDR Video Capture
+- Category: "Camera"
+- Type: "New features and APIs"
+- Name: "HDR video capture"
+- Info: "Apps can use Camera2 APIs to capture and preview HDR video content."
+- Describe: "Apps can use Camera2 APIs to capture and preview HDR video content."
+- API_List: "['Camera2']"
+- Source: "https://developer.android.com/about/versions/13/features#hdr-video-capture"
+
+# Connectivity
+
+1. Bluetooth Adapter Changes
+- Category: "Connectivity"
+- Type: "Change (apps targeting 13+)"
+- Name: "BluetoothAdapter#enable() and BluetoothAdapter#disable() deprecated"
+- Info: "For apps targeting Android 13 (API level 33) or higher, the BluetoothAdapter#enable() and BluetoothAdapter#disable() methods are deprecated and always return false."
+- Describe: "For apps targeting Android 13 (API level 33) or higher, the BluetoothAdapter#enable() and BluetoothAdapter#disable() methods are deprecated and always return false."
+- API_List: "['BluetoothAdapter#enable', 'BluetoothAdapter#disable']"
+- Source: "https://developer.android.com/about/versions/13/behavior-changes-13#bluetooth-adapter"
+
+# Core functionality
+
+1. Speech Service Changes
+- Category: "Core functionality"
+- Type: "Change (all apps)"
+- Name: "Legacy copy of speech service implementation removed"
+- Info: "Apps should use the device's default provider for SpeechService, rather than hard-coding a specific app."
+- Describe: "Apps should use the device's default provider for SpeechService, rather than hard-coding a specific app."
+- API_List: "['SpeechService']"
+- Source: "https://developer.android.com/about/versions/13/behavior-changes-all#speech-service"
+
+2. OpenJDK Updates
+- Category: "Core functionality"
+- Type: "New features and APIs"
+- Name: "OpenJDK 11 updates"
+- Info: "Android 13 includes a number of updates to align with the OpenJDK 11 LTS release."
+- Describe: "Android 13 includes a number of updates to align with the OpenJDK 11 LTS release."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/13/features#core-libraries"
+
+# Developer productivity and tools
+
+1. Themed App Icons
+- Category: "Developer productivity and tools"
+- Type: "New features and APIs"
+- Name: "Themed app icons"
+- Info: "Apps can provide monochromatic app icons that can be styled on a user's device using Material You dynamic color."
+- Describe: "Apps can provide monochromatic app icons that can be styled on a user's device using Material You dynamic color."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/13/features#themed-app-icons"
+
+2. Language Preferences
+- Category: "Developer productivity and tools"
+- Type: "New features and APIs"
+- Name: "Per-app language preferences"
+- Info: "Apps can use new platform APIs to set or get a user's preferred, per-app language."
+- Describe: "Apps can use new platform APIs to set or get a user's preferred, per-app language."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/13/features/app-languages"
+
+# Performance and battery
+
+1. Prefetch Job Handling
+- Category: "Performance and battery"
+- Type: "Change (all apps)"
+- Name: "Improve prefetch job handling using JobScheduler"
+- Info: "In Android 13, the system now tries to determine the next time an app will be launched, and uses that estimation to run prefetch jobs."
+- Describe: "In Android 13, the system now tries to determine the next time an app will be launched, and uses that estimation to run prefetch jobs. This improvement helps optimize system resources and battery life by better timing when prefetch operations occur."
+- API_List: "['JobScheduler']"
+- Source: "https://developer.android.com/about/versions/13/behavior-changes-all#prefetch-jobs"
+
+2. Battery Resource Utilization
+- Category: "Performance and battery"
+- Type: "Change (all apps)"
+- Name: "Battery Resource Utilization"
+- Info: "Android 13 introduces Battery Resource Utilization, which provides several ways to better manage device battery life."
+- Describe: "Android 13 introduces Battery Resource Utilization, which provides several ways to better manage device battery life. This feature helps developers understand and optimize their apps' impact on device battery life."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/13/changes/battery"
+
+# Privacy and security
+
+1. Notification Permission
+- Category: "Privacy and security"
+- Type: "Change (all apps)"
+- Name: "Runtime permission for notifications"
+- Info: "Android 13 introduces a new runtime notification permission: POST_NOTIFICATIONS."
+- Describe: "Android 13 introduces a new runtime notification permission: POST_NOTIFICATIONS. Apps targeting Android 13 must request this permission to post notifications to users. This change gives users more control over which apps can send them notifications."
+- API_List: "['POST_NOTIFICATIONS']"
+- Source: "https://developer.android.com/about/versions/13/changes/notification-permission"
+
+2. Runtime Receivers
+- Category: "Privacy and security"
+- Type: "New features and APIs"
+- Name: "Safer exporting of context-registered receivers"
+- Info: "To help make runtime receivers safer, Android 13 allows you to specify whether a particular broadcast receiver in your app should be exported and visible to other apps on the device."
+- Describe: "To help make runtime receivers safer, Android 13 allows you to specify whether a particular broadcast receiver in your app should be exported and visible to other apps on the device. This enhancement helps prevent unauthorized access to your app's broadcast receivers and improves overall app security."
+- API_List: "['BroadcastReceiver']"
+- Source: "https://developer.android.com/about/versions/13/features#runtime-receivers"
+
+3. Photo Picker
+- Category: "Privacy and security"
+- Type: "New features and APIs"
+- Name: "Photo picker"
+- Info: "Android 13 includes the photo picker, which allows users to share specific photos and videos with apps while protecting sensitive information in their media library."
+- Describe: "Android 13 includes the photo picker, which allows users to share specific photos and videos with apps while protecting sensitive information in their media library. This feature enhances user privacy by giving them more granular control over which media files apps can access.\n\nThe photo picker is available through an intent-based API that doesn't require any special permissions, making it easier for apps to access media while respecting user privacy."
+- API_List: "['Intent.ACTION_PICK_IMAGES']"
+- Source: "https://developer.android.com/about/versions/13/features#photo-picker"

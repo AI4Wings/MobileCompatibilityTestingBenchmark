@@ -1,0 +1,121 @@
+# Privacy
+
+1. One-time Permissions
+- Category: "Privacy"
+- Type: "New features and APIs"
+- Name: "One-time permissions"
+- Info: "Gives users the option to grant more temporary access to location, microphone, and camera permissions."
+- Describe: "Android 11 introduces one-time permissions that give users the option to grant an app access to location, microphone, or camera for just that one time. The next time the app needs access to these sensors, it must request permission again.\n\nThis feature gives users more control over their privacy and helps prevent apps from having unnecessary long-term access to sensitive data."
+- API_List: "['CAMERA', 'RECORD_AUDIO', 'ACCESS_FINE_LOCATION']"
+- Source: "https://developer.android.com/about/versions/11/privacy/permissions#one-time"
+
+2. Permission Dialog Visibility
+- Category: "Privacy"
+- Type: "Change (all apps)"
+- Name: "Permission dialog visibility changes"
+- Info: "Repeated denials of a permission implies 'don't ask again.'"
+- Describe: "When a user taps Deny twice for a specific permission, Android 11 interprets this as 'don't ask again.' This change helps prevent permission fatigue and gives users more control over their privacy settings."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/privacy/permissions#dialog-visibility"
+
+3. Data Access Auditing
+- Category: "Privacy"
+- Type: "New features and APIs"
+- Name: "Data access auditing"
+- Info: "Gain insights into where your app accesses private data, both in your app's own code and in dependent libraries' code."
+- Describe: "Android 11 introduces data access auditing that allows developers to better understand how their apps and included libraries access private data. This feature helps identify potential privacy issues and ensures compliance with privacy best practices."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/privacy/data-access-auditing"
+
+4. System Alert Window Permissions
+- Category: "Privacy"
+- Type: "Change (all apps)"
+- Name: "System alert window permissions"
+- Info: "Certain classes of apps are automatically granted the SYSTEM_ALERT_WINDOW permission upon request."
+- Describe: "Android 11 changes how the SYSTEM_ALERT_WINDOW permission is handled. Certain app categories can now receive automatic permission grants, and intents with ACTION_MANAGE_OVERLAY_PERMISSION always direct users to system settings.\n\nThis change improves the user experience while maintaining security for overlay windows."
+- API_List: "['SYSTEM_ALERT_WINDOW', 'ACTION_MANAGE_OVERLAY_PERMISSION']"
+- Source: "https://developer.android.com/about/versions/11/privacy/permissions#system-alert-window"
+
+# Security
+
+1. SSL Socket Implementation
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "SSL sockets use Conscrypt SSL engine by default"
+- Info: "Android's default SSLSocket implementation is based on Conscrypt and built on top of Conscrypt's SSLEngine."
+- Describe: "Starting with Android 11, the default SSLSocket implementation is based on Conscrypt and internally built on top of Conscrypt's SSLEngine. This change improves security and performance of SSL connections."
+- API_List: "['SSLSocket', 'SSLEngine']"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#ssl-sockets"
+
+2. Scudo Hardened Allocator
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "Scudo Hardened Allocator"
+- Info: "Android 11 uses the Scudo Hardened Allocator internally to service heap allocations."
+- Describe: "Android 11 implements the Scudo Hardened Allocator for heap allocations. This allocator can detect and mitigate certain types of memory safety violations, improving overall system security."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#scudo-allocator"
+
+# Exposure Notifications
+
+1. Location Setting Exception
+- Category: "Privacy"
+- Type: "Change (all apps)"
+- Name: "Exposure Notifications System location setting exception"
+- Info: "Users can run Exposure Notifications apps without needing to turn on the device location setting."
+- Describe: "Android 11 allows users to run Exposure Notifications apps without enabling device location settings. This is a special exception for the Exposure Notifications System only, as it's designed to prevent location inference through Bluetooth scanning.\n\nAll other apps still require device location settings to be enabled for Bluetooth scanning."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#exposure-notifications"
+
+# Performance and debugging
+
+1. JobScheduler API Debugging
+- Category: "Performance and debugging"
+- Type: "New features and APIs"
+- Name: "JobScheduler API call limits debugging"
+- Info: "Android 11 offers debugging support for apps to identify potential JobScheduler API invocations that have exceeded rate limits."
+- Describe: "Android 11 offers debugging support to help identify JobScheduler API invocations that exceed rate limits. For apps with debuggable manifest attribute set to true, JobScheduler API invocations beyond the rate limits will return RESULT_FAILURE."
+- API_List: "['JobScheduler', 'RESULT_FAILURE']"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#jobscheduler-debug"
+
+2. File Descriptor Sanitizer
+- Category: "Performance and debugging"
+- Type: "Change (all apps)"
+- Name: "File descriptor sanitizer (fdsan) behavior change"
+- Info: "fdsan now aborts upon detecting an error instead of logging a warning."
+- Describe: "The file descriptor sanitizer (fdsan) now aborts upon detecting errors like use-after-close and double-close, instead of just logging warnings. This change helps identify and fix file descriptor handling issues more quickly."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#fdsan"
+
+# App Usage Stats
+
+1. Credential Encrypted Storage
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "App usage stats in credential encrypted storage"
+- Info: "Android 11 stores each user's app usage stats in credential encrypted storage for better protection."
+- Describe: "Android 11 enhances security by storing app usage stats in credential encrypted storage. Apps can only access this data after the user unlocks their device (isUserUnlocked() returns true). This occurs after device unlock or user account switch.\n\nApps using UsageStatsManager must verify the user has unlocked their device before calling methods, as they will now return null or empty values otherwise."
+- API_List: "['UsageStatsManager', 'isUserUnlocked']"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#app-usage-stats"
+
+# App Interaction
+
+1. Content URI Sharing
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "Content URI sharing permissions"
+- Info: "Apps sharing content URIs must grant URI access permissions using specific intent flags."
+- Describe: "When sharing content URIs with other apps, the intent must include either FLAG_GRANT_READ_URI_PERMISSION or FLAG_GRANT_WRITE_URI_PERMISSION flags. This requirement ensures proper access control, especially for apps targeting Android 11.\n\nThis applies even when sharing content URIs from content providers not owned by your app. Additionally, if your app owns the content provider, it should not be exported."
+- API_List: "['FLAG_GRANT_READ_URI_PERMISSION', 'FLAG_GRANT_WRITE_URI_PERMISSION']"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#share-content-uris"
+
+# Library Loading
+
+1. ICU Library Loading
+- Category: "Development"
+- Type: "Change (all apps)"
+- Name: "Loading ICU common library with absolute path"
+- Info: "Apps targeting API 28 and lower cannot use dlopen(3) to load libicuuc with absolute path."
+- Describe: "Apps targeting API 28 and lower can no longer use dlopen(3) to load libicuuc with the absolute path '/system/lib/libicuuc.so'. Instead, they should use just the library name 'libicuuc.so' when loading the library."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/11/behavior-changes-all#library-loading"

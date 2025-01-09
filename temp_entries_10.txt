@@ -1,0 +1,117 @@
+# Privacy and Security
+
+1. Privacy Changes
+- Category: "Privacy"
+- Type: "Change (all apps)"
+- Name: "Enhanced privacy controls"
+- Info: "Android 10 introduces a large number of privacy-based changes and restrictions affecting all apps."
+- Describe: "Android 10 introduces significant privacy changes including:\n- Background access to device location restrictions\n- Background activity start limitations\n- Contacts affinity information access changes\n- MAC address randomization\n- Camera metadata restrictions\n- Enhanced permissions model\n\nThese changes affect all apps and enhance user privacy by providing more control over sensitive data access."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/privacy/changes"
+
+2. TLS 1.3 Support
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "TLS 1.3 enabled by default"
+- Info: "In Android 10 and higher, TLS 1.3 is enabled by default for all TLS connections."
+- Describe: "TLS 1.3 is enabled by default with specific implementation details:\n- TLS 1.3 cipher suites cannot be customized\n- HandshakeCompletedListener objects are called before sessions are added to the session cache\n- Some SSLEngine exceptions now throw SSLProtocolException instead of SSLHandshakeException\n- 0-RTT mode is not supported"
+- API_List: "['SSLContext', 'SSLSocket', 'HandshakeCompletedListener', 'SSLEngine']"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#tls-1.3"
+
+3. SHA-1 Certificates
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "Certificates signed with SHA-1 aren't trusted in TLS"
+- Info: "Certificates that use the SHA-1 hash algorithm aren't trusted in TLS connections."
+- Describe: "Android 10 no longer trusts certificates using SHA-1 hash algorithm in TLS connections. Root CAs haven't issued such certificates since 2016. Any attempt to connect fails if the site presents a certificate using SHA-1."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#certificates-sha1"
+
+# System Changes
+
+1. Non-SDK Interface Restrictions
+- Category: "System"
+- Type: "Change (all apps)"
+- Name: "Updated non-SDK interface restrictions"
+- Info: "Android 10 includes updated lists of restricted non-SDK interfaces based on collaboration with Android developers and internal testing."
+- Describe: "To help ensure app stability and compatibility, Android 10 continues restricting which non-SDK interfaces apps can use. The platform provides public alternatives before restricting non-SDK interfaces.\n\nApps should test for non-SDK interface usage and plan migration to SDK alternatives."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#non-sdk-restrictions"
+
+2. Gesture Navigation
+- Category: "System"
+- Type: "Change (all apps)"
+- Name: "System-wide gesture navigation"
+- Info: "Users can enable gesture navigation across the device, affecting all apps regardless of target API level."
+- Describe: "Beginning with Android 10, users can enable system-wide gesture navigation. This affects all apps, including those not targeting API level 29. For example, edge swipes are interpreted as Back navigation unless specifically overridden.\n\nApps should extend content edge-to-edge and handle conflicting gestures appropriately."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#gesture-nav"
+
+3. Shared Objects Restrictions
+- Category: "NDK"
+- Type: "Change (all apps)"
+- Name: "Shared objects cannot contain text relocations"
+- Info: "SELinux enforces text relocation restrictions on shared objects for apps targeting Android 10 or higher."
+- Describe: "Android 6.0 disallowed use of text relocations in shared objects. In Android 10, SELinux enforces this restriction for apps targeting API level 29 or higher. Code must be loaded as-is and cannot be modified.\n\nThis change improves app load times and security."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#shared-objects"
+
+# Storage and Files
+
+1. Bionic Libraries
+- Category: "Storage"
+- Type: "Change (all apps)"
+- Name: "Changes to Bionic libraries and dynamic linker paths"
+- Info: "Several system paths are now symbolic links instead of regular files."
+- Describe: "Starting in Android 10, several paths are symbolic links instead of regular files:\n- /system/lib/libc.so -> /apex/com.android.runtime/lib/bionic/libc.so\n- /system/lib/libm.so -> /apex/com.android.runtime/lib/bionic/libm.so\n- /system/lib/libdl.so -> /apex/com.android.runtime/lib/bionic/libdl.so\n- /system/bin/linker -> /apex/com.android.runtime/bin/linker"
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#bionic-changes"
+
+2. Execute-Only Memory
+- Category: "Security"
+- Type: "Change (all apps)"
+- Name: "System binaries/libraries mapped to execute-only memory"
+- Info: "Executable segments of system binaries and libraries are mapped into memory execute-only as a hardening technique."
+- Describe: "Starting in Android 10, executable segments of system binaries and libraries are mapped into memory execute-only (non-readable) to protect against code-reuse attacks. Read operations on execute-only memory segments result in SIGSEGV signals.\n\nApps can use mprotect() to temporarily mark segments as read+execute for debugging purposes."
+- API_List: "['mprotect']"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#execute-only"
+
+# Connectivity
+
+1. Wi-Fi Direct
+- Category: "Connectivity"
+- Type: "Change (all apps)"
+- Name: "Wi-Fi Direct broadcasts no longer sticky"
+- Info: "WIFI_P2P_CONNECTION_CHANGED_ACTION and WIFI_P2P_THIS_DEVICE_CHANGED_ACTION broadcasts are no longer sticky."
+- Describe: "On Android 10, Wi-Fi Direct related broadcasts are no longer sticky. Apps should use appropriate get() methods at initialization instead of relying on sticky broadcasts for:\n- WIFI_P2P_CONNECTION_CHANGED_ACTION\n- WIFI_P2P_THIS_DEVICE_CHANGED_ACTION"
+- API_List: "['WIFI_P2P_CONNECTION_CHANGED_ACTION', 'WIFI_P2P_THIS_DEVICE_CHANGED_ACTION']"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#wifi-direct"
+
+2. Wi-Fi Aware
+- Category: "Connectivity"
+- Type: "New features and APIs"
+- Name: "Enhanced Wi-Fi Aware capabilities"
+- Info: "Android 10 adds support to ease TCP/UDP Socket creation using Wi-Fi Aware datapaths."
+- Describe: "Android 10 simplifies TCP/UDP socket creation over Wi-Fi Aware by allowing port information to be communicated during network setup. Servers can:\n- Initialize ServerSocket and set/obtain ports\n- Specify port information in Wi-Fi Aware network requests\n\nClients can obtain IPv6 and port information during connection setup."
+- API_List: "['ServerSocket', 'WifiAwareNetworkSpecifier', 'NetworkRequest']"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#wifi-aware"
+
+# User Experience
+
+1. System Alert Window
+- Category: "UX"
+- Type: "Change (all apps)"
+- Name: "SYSTEM_ALERT_WINDOW restrictions on Go devices"
+- Info: "Apps running on Android 10 (Go edition) devices cannot receive the SYSTEM_ALERT_WINDOW permission."
+- Describe: "On Android 10 (Go edition) devices:\n- New apps cannot receive SYSTEM_ALERT_WINDOW permission\n- Existing apps retain permission after upgrade\n- ACTION_MANAGE_OVERLAY_PERMISSION intents are auto-denied\n- Settings.canDrawOverlays() always returns false\n\nThis change improves performance on low-memory devices."
+- API_List: "['SYSTEM_ALERT_WINDOW', 'ACTION_MANAGE_OVERLAY_PERMISSION', 'Settings.canDrawOverlays']"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#system-alert-window-go"
+
+2. Legacy App Warnings
+- Category: "UX"
+- Type: "Change (all apps)"
+- Name: "Warnings for apps targeting older Android versions"
+- Info: "Devices warn users when running apps targeting Android 5.1 or lower."
+- Describe: "Android 10 displays warnings to users when running apps targeting API level 22 or lower. Users can adjust app permissions before first run.\n\nThis aligns with Google Play's target API requirements and similar requirements from other app stores."
+- API_List: "[]"
+- Source: "https://developer.android.com/about/versions/10/behavior-changes-all#older-target"
